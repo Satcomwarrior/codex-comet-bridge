@@ -1,0 +1,42 @@
+
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Unified Transaction Schema",
+  "description": "Defines the structure for a single financial transaction in the unified ledger.",
+  "type": "object",
+  "properties": {
+    "transaction_id": {
+      "description": "A unique identifier for the transaction, ideally a hash of its contents.",
+      "type": "string"
+    },
+    "timestamp": {
+      "description": "The date and time of the transaction in ISO 8601 format.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "description": {
+      "description": "A textual description of the transaction.",
+      "type": "string"
+    },
+    "amount": {
+      "description": "The monetary value of the transaction.",
+      "type": "number"
+    },
+    "currency": {
+      "description": "The ISO 4217 currency code.",
+      "type": "string"
+    },
+    "source_file": {
+      "description": "The path to the original statement file from which this transaction was extracted.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "transaction_id",
+    "timestamp",
+    "description",
+    "amount",
+    "currency",
+    "source_file"
+  ]
+}
