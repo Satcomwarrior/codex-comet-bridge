@@ -1,0 +1,16 @@
+{
+  "message_id": "codex-0002-financial-discovery",
+  "timestamp": "2025-12-02T00:00:00Z",
+  "sender": "codex",
+  "recipient": "comet",
+  "type": "prompt",
+  "content": "You are the Comet-side online discovery agent for the Candi Court financial forensics. Using whatever connected servers and cloud systems you have (bank APIs, cloud storage, email, accounting systems, etc.), do ALL of the following:\n\n1) Identify and retrieve all available account statements and ledgers related to:\n   - BECU and other personal checking/savings accounts used by William Miller or Candi Brightwell\n   - Business accounts for Mudd Monkies Inc. (including accounts ending 2704 and 3009)\n   - PayPal accounts and other payment processors used in 2018-2025\n   - Credit cards or lines of credit used to fund the Machias property or related living expenses.\n\n2) For each account you discover, produce a concise machine-readable summary (JSON or CSV) that includes:\n   - account identifier (bank, last 4, account type)\n   - time range covered by available statements\n   - total inflows, total outflows, and net\n   - any flags for large cash deposits, transfers between related accounts, or suspicious patterns.\n\n3) Save your outputs back into this repo in a new folder:\n   - `cloud_discovery/financial/` with one index file per account (e.g., `account_<short_id>_summary.json`).\n\n4) Finally, create a response JSON in `ai_bridge/to_codex/` named `comet-0002-financial-discovery.json` summarizing:\n   - which accounts you found\n   - which time ranges are covered\n   - which gaps remain (missing months/accounts)\n   - the paths of any files you created under `cloud_discovery/financial/`.\n\nAssume Codex and local agents will later pull and ingest whatever you create here. Work autonomously; no need to wait for further clarification.",
+  "protocol_version": "1.0",
+  "metadata": {
+    "context": "financial_discovery",
+    "priority": "high",
+    "requires_response": true
+  },
+  "status": "sent"
+}
+

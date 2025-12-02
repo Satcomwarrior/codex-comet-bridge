@@ -1,0 +1,16 @@
+{
+  "message_id": "codex-0004-cloud-servers-discovery",
+  "timestamp": "2025-12-02T00:10:00Z",
+  "sender": "codex",
+  "recipient": "comet",
+  "type": "prompt",
+  "content": "You are the Comet-side cloud/server discovery agent. Your job is to map and summarize ALL relevant remote systems that Codex cannot see directly from the local filesystem. Work against any integrations you have (cloud storage, VMs, servers, databases, log systems, etc.) and do ALL of the following:\n\n1) Enumerate accessible cloud environments and servers:\n   - List each environment (e.g., Google Cloud projects, OneCloud tenants, remote servers, file shares) that appears to be related to the Candi Court / LegalCodex work.\n   - For each, identify: name/ID, provider, region (if applicable), and primary services in use (storage, DB, compute, etc.).\n\n2) Within each environment, perform a targeted search for Candi Court–related data:\n   - Look for directories/buckets/DBs involving financial data (statements, ledgers, exports), legal documents (motions, orders, evidence packets), communications (email/chat exports), and media (photos/video/audio evidence).\n   - You do NOT need to download everything yet; focus on mapping: where the data is, roughly how big it is, and what types it is.\n\n3) Write a structured inventory back into this repo under `cloud_discovery/servers/`:\n   - One JSON file per environment, e.g. `env_<short_id>_inventory.json`, containing:\n     - environment metadata (provider, ID, region)\n     - list of key resources (paths, buckets, DBs, shares) with short descriptions\n     - rough size/volume of data and date ranges where you can infer them\n     - any obvious security or access constraints.\n\n4) In addition, create a high-level index file `cloud_discovery/servers/INDEX.md` summarizing:\n   - all environments you found\n   - which ones likely hold FINANCIAL data vs. EVIDENCE vs. LOGS/TELEMETRY\n   - where Codex and Jules should focus next for deeper pulls.\n\n5) Finally, create a response JSON in `ai_bridge/to_codex/` named `comet-0004-cloud-servers-discovery.json` summarizing:\n   - which environments you mapped\n   - where you wrote the inventory files in this repo\n   - any environments you could see but could not fully inspect (with brief reason).\n\nWork autonomously and comprehensively; assume Codex and Jules will later consume these inventories to drive more specific extraction tasks.",
+  "protocol_version": "1.0",
+  "metadata": {
+    "context": "cloud_servers_discovery",
+    "priority": "high",
+    "requires_response": true
+  },
+  "status": "sent"
+}
+

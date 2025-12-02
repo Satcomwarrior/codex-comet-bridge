@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Unified Financial Ledger Schema",
+  "description": "A unified schema for financial transactions from both LegalCodex and Comet discovery.",
+  "type": "object",
+  "properties": {
+    "transaction_id": {
+      "description": "A unique identifier for the transaction.",
+      "type": "string"
+    },
+    "timestamp": {
+      "description": "The timestamp of the transaction.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "account_number": {
+      "description": "The account number associated with the transaction.",
+      "type": "string"
+    },
+    "amount": {
+      "description": "The amount of the transaction.",
+      "type": "number"
+    },
+    "currency": {
+      "description": "The currency of the transaction.",
+      "type": "string"
+    },
+    "description": {
+      "description": "A description of the transaction.",
+      "type": "string"
+    },
+    "source": {
+      "description": "The source of the transaction data (e.g., 'LegalCodex', 'Comet').",
+      "type": "string",
+      "enum": ["LegalCodex", "Comet"]
+    },
+    "reconciliation_status": {
+      "description": "The reconciliation status of the transaction.",
+      "type": "string",
+      "enum": ["new", "overlapping", "reconciled"]
+    },
+    "metadata": {
+      "description": "Additional metadata about the transaction.",
+      "type": "object"
+    }
+  },
+  "required": [
+    "transaction_id",
+    "timestamp",
+    "account_number",
+    "amount",
+    "currency",
+    "description",
+    "source"
+  ]
+}

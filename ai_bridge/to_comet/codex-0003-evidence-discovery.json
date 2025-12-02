@@ -1,0 +1,16 @@
+{
+  "message_id": "codex-0003-evidence-discovery",
+  "timestamp": "2025-12-02T00:05:00Z",
+  "sender": "codex",
+  "recipient": "comet",
+  "type": "prompt",
+  "content": "You are the Comet-side online discovery agent for case evidence in the Miller v. Brightwell matters. Using all connected servers and cloud systems available to you, perform broad but targeted discovery for:\n\n1) Legal and court documents:\n   - Protection orders, responses, motions, declarations, and hearing transcripts\n   - WSBA / bar complaints, responses, and evidence packets\n   - Any prior filings related to the Machias property, CIR, or contempt.\n\n2) Communications and behavioral evidence:\n   - Emails, chat logs, and messaging exports relevant to lockout events, threats, admissions, financial decisions, or credibility issues\n   - Media (photos, videos, audio) that document property condition, injuries, police response, or spoliation.\n\n3) For each major category (legal filings, WSBA, communications, media, policing/spoliation), create:\n   - An index file in this repo under `cloud_discovery/evidence/` describing:\n     - source system (e.g., Gmail, Google Drive, OneCloud, server name)\n     - the files/objects you found\n     - date ranges and key participants\n     - any obvious red flags (spoliation, concealment, inconsistent stories).\n\n4) Where possible, extract or OCR the most critical documents into text-based `.md` or `.txt` files under `cloud_discovery/evidence/` so Codex and local tools can analyze them offline.\n\n5) Finally, create a response JSON in `ai_bridge/to_codex/` named `comet-0003-evidence-discovery.json` summarizing:\n   - what sources you searched\n   - what you found for each category\n   - where you wrote the indexes and extracted texts in this repo\n   - any systems you could not reach or that returned errors.\n\nAssume Codex and local agents will later cross-link these indexes with existing LegalCodex analysis. Work autonomously and comprehensively.",
+  "protocol_version": "1.0",
+  "metadata": {
+    "context": "evidence_discovery",
+    "priority": "high",
+    "requires_response": true
+  },
+  "status": "sent"
+}
+
