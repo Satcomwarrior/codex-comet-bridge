@@ -13,7 +13,7 @@ This document outlines the automated scripts and workflows that Jules, the bridg
 - **Functionality**:
     - Scans the `ai_bridge/to_comet` and `ai_bridge/to_codex` directories for new `.json` message files.
     - Scans the `cloud_discovery` directory for any new files.
-    - Appends a new session entry, including all new messages and file content, to `ai_bridge/logs/session.json`.
+    - Appends new messages to the latest session in `ai_bridge/logs/session.json`, or creates a new session if the log file is empty.
 - **State Management**: This script uses a state file (`ai_bridge/logs/summarize_activity.state`) to keep track of the last run time. This ensures that only new files are processed on each run.
 - **Execution**: This script is intended to be run periodically (e.g., via a cron job).
 
