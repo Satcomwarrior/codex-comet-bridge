@@ -1,39 +1,26 @@
-# Financial Discovery Tool
+# MOVED: Candi Court Financial Discovery
 
-## Overview
+**Do not add new case-specific financial discovery work in this folder.**
 
-This tool is designed to ingest and process financial statements from various sources into a unified financial ledger. It provides a structured and automated way to manage financial data for the Candi Court matter, enabling reconciliation and analysis of transactions from both LegalCodex and Comet.
+This package was created for the Candi Court matter and has been consolidated into the canonical legal repository:
 
-## Directory Structure
+`Satcomwarrior/candi-court/financial_discovery/`
 
-```
-financial_discovery/
-├── README.md                # This file
-├── ledger/
-│   └── unified_ledger.jsonl # The unified financial ledger
-├── schema/
-│   └── unified_ledger_schema.json # The JSON schema for the unified ledger
-├── scripts/
-│   └── ingest_statements.py   # The Python script for ingesting statements
-└── statements/
-    ├── raw/                 # Raw financial statements to be processed
-    └── processed/           # Processed financial statements
-```
+The Candi Court copy now contains the financial-discovery code/schema, migration provenance, and the processed source statement migrated with an identical Git blob SHA.
 
-## Usage
+## Status of this folder
 
-1. **Place raw financial statements** in the `financial_discovery/statements/raw/` directory. The tool currently supports `.csv` files only. PDF processing is not yet implemented.
+This folder remains in `codex-comet-bridge` only as historical source/provenance. The broader `codex-comet-bridge` repository is a separate integration project and is **not** retired by this move.
 
-2. **Run the ingestion script** from the root of the repository:
-   ```bash
-   python financial_discovery/scripts/ingest_statements.py
-   ```
+Do not:
 
-3. **The script will:**
-   - Process each statement in the `raw` directory.
-   - Append the transactions to the `unified_ledger.jsonl` file.
-   - Move the processed statements to the `processed` directory.
+- add new Candi Court statements here;
+- update case-specific reconciliation logic here;
+- treat this folder's derived ledger as the canonical evidence source;
+- create another case-specific financial repository.
 
-## Reconciliation
+For current case work, use `Satcomwarrior/candi-court/financial_discovery/`.
 
-The ingestion script includes basic reconciliation logic to identify overlapping transactions. If a transaction with the same unique ID already exists in the ledger, it will be marked as `overlapping`. Otherwise, it will be marked as `new`.
+## Historical note
+
+The legacy package ingested financial statements into a unified ledger and contained basic duplicate/reconciliation logic. Its source history is retained here so prior commits remain traceable, while current development belongs in Candi Court.
